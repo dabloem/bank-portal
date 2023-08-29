@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  getsandbox:
+    image: getsandbox/worker-cli:watch
+    ports:
+      - "3000:80"
+    volumes:
+      - "./investors:/base"
+

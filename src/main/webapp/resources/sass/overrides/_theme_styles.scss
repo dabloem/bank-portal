@@ -1,0 +1,11 @@
+/* Add your customizations of the theme styles here */
+.layout-topbar-wrapper {
+    max-width: 1210px;
+    margin: auto;
+}
+
+.menu-wrapper {
+    background-image: linear-gradient(-296deg,#005e5d,#00857a);
+}
+
+$menuitemTextColor:$shade000 !default;

@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html" 
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:rain="http://primefaces.org/rain">
+
+<div class="menu-wrapper">
+    <div class="layout-menu-container" style="max-width: 1210px; margin: auto">
+        <ui:fragment rendered="false">
+            <div class="layout-profile">
+                <a class="layout-profile-button" href="#">
+                    <span class="image-name">
+                        <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout" />
+                        <span class="layout-profile-userinfo">
+                            <span class="layout-profile-name">#{idToken.givenName}</span>
+                            <span class="layout-profile-mail">#{idToken.email}</span>
+                        </span>
+                    </span>
+                    <i class="layout-profile-icon pi pi-chevron-down"/>
+                </a>
+                <ul class="layout-profile-menu">
+                    <li>
+                        <p:link>
+<!--                            outcome="/investor/settings.xhtml">-->
+                            <i class="pi pi-user"/>
+                            <span>Profile</span>
+                        </p:link>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="pi pi-envelope"/>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://5dc7-2a02-a46c-211d-1-cfd-191f-b22c-2c9.ngrok.io/auth/realms/noderunners/protocol/openid-connect/auth?response_type=code&amp;client_id=logbook&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&amp;scope=openid&amp;kc_action=LightningNodeVerification"  rel="noreferrer">
+                            <i class="pi pi-bell"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ui:fragment>
+
+        <h:form id="menuform">
+            <rain:menu style="background: transparent; padding: 0">
+                <p:menuitem value="Rekeningen" outcome="/idx" icon="pi pi-wallet"/>
+                <p:submenu label="Zelf regelen" icon="pi pi-pencil">
+                    <p:menuitem value="index" outcome="/idx"/>
+                </p:submenu>
+                <p:submenu label="Instellingen" icon="pi pi-cog">
+                    <p:menuitem value="index" outcome="/idx"/>
+                </p:submenu>
+                <p:menuitem value="Takenlijst" outcome="/holders" icon="pi pi-user"/>
+            </rain:menu>
+       </h:form>
+    </div>
+</div>
+
+</ui:composition>

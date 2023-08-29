@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="background-image: linear-gradient(302deg,#00857a,#005e5d); background-attachment: fixed; margin: 0">
+        <div class="p-grid" style="margin: 0px;">
+            <div class="p-col-12" style="background-color: white; height: 84px;">
+                <div class="layout-topbar-wrapper" style="max-width: 1210px; margin: auto;">
+                    <div class="p-grid" style="margin: 20px;">
+                        <div>
+                            <h:link id="logolink" outcome="/idx" styleClass="layout-topbar-logo" rendered="true">
+                                <p:graphicImage rendered="true" name="images/abnamro.svg" library="demo" height="36" />
+                            </h:link>
+                        </div>
+                        <div style="margin-left: 50px;">
+                            <h5>
+                                <h:link outcome="/idx" value="Back" style="color: #005e5d"/>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div style="max-width: 1210px; margin: auto; display: flex; justify-content: center;">
+                    <div class="card" style="height: 300px; background-color: white;">
+                        <h1>Log in met QR-code</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h:outputStylesheet name="css/primeflex.min.css" library="rain-layout" />
+        <h:outputStylesheet name="css/layout-chambray-light.css" library="rain-layout" />
+    </h:body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/primeflex2.css" library="showcase" />
+    <h:outputStylesheet name="css/layout/layout.css"  library="showcase"/>
+
+    <link href="https://fonts.cdnfonts.com/css/saira" rel="stylesheet"/>
+    <style>
+        body .ui-tabs .ui-tabs-nav li.ui-tabs-header a {
+            font-family: Saira;
+            font-weight: 500;
+        }
+    </style>
+</h:head>
+
+<h:body style="font-family: Saira">
+
+    <p:messages id="messages" />
+
+    <div class="layout-wrapper">
+        <div class="layout-topbar" style="padding-left: 250px;">
+            <h:graphicImage name="showcase/images/digtl.png"  width="150"/>
+            <p:button value="home" outcome="/idx"/>
+        </div>
+        <div class="layout-mask"/>
+        <div class="layout-content" style="width: 800px">
+            <div style="text-align: center">
+                <p:tabView>
+                    <p:tab title="Overview"/>
+                    <p:tab title="Debt Classes"/>
+                    <p:tab title="Manage Holders">
+                        <ui:include src="WEB-INF/holders/holders.xhtml"></ui:include>
+                    </p:tab>
+                </p:tabView>
+            </div>
+
+            <h:outputText value="Hello tjaads" />
+        </div>
+    </div>
+</h:body>
+
+</html>

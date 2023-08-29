@@ -1,0 +1,120 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Button</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/button">BUTTON</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form class="layout-dashboard">
+            <div class="p-grid button-demo">
+                <div class="p-col-9 md:col-6">
+                    <h3>Rekeningoverzicht</h3>
+                    <div class="card" style="padding: 0px">
+                                                
+                        <ui:repeat value="#{accountsView.accounts}" var="a">
+                            <p:link href="#" style="text-decoration: none;" onclick="PF('dlg2').show()" disabled="#{a.type ne 'BLOCKCHAIN'}">
+                                <div class="stats products">
+                                    <ul>
+                                        <li style="list-style: none">
+                                            <div class="products-info-icon" style="flex-grow: 0; padding-right: 20px; min-width: 300px;">
+                                                <div class="products-icon" style="width: 96px;">
+                                                    <p:graphicImage url="https://www.abnamro.nl/nl/media/pr-cards-card_tcm16-26920.svg" rendered="#{a.type eq 'IBAN'}"/>
+                                                    <p:graphicImage name="images/blockchain.png" library="demo" height="36" width="36" rendered="#{a.type eq 'BLOCKCHAIN'}"/>
+                                                    <p:graphicImage name="images/rabo.png" library="demo" height="36" width="36" rendered="#{a.type eq 'RABO'}"/>
+                                                    <!--<img src="https://www.abnamro.nl/nl/media/pr-cards-card_tcm16-26920.svg"/>-->
+                                                </div>
+                                                <div class="products-info">
+                                                    <span class="product-name">#{a.name}</span>
+                                                    <span>#{a.type eq 'BLOCKCHAIN' ? 'Blockchain ' : 'Ondernemers'}rekening</span>
+                                                </div>
+                                            </div>
+                                            <div class="products-info-icon">
+                                                <div class="products-info">
+                                                    <span style="font-size: 16px;">#{a.id}</span>
+                                                </div>
+                                            </div>
+                                            <div class="products-stat" style="font-weight: 800;">
+                                                € #{a.amount}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </p:link>
+                            <p:divider style="margin: 0"/>
+                        </ui:repeat>
+                        
+                        
+                    </div>
+                </div>
+                <div class="p-col-3 md:col-6">
+                        <h3>Snel naar</h3>
+                        <ul style="color: rgb(0, 113, 107);">
+                            <li>
+                                <p:link href="#" value="Bij- en afschrijvingen downloaden"/>
+                            </li>
+                            <li>Afschriften, overzichten en nota's</li>
+                            <li>Betaalpas blokkeren en limieten</li>
+                        </ul>
+                </div>
+            </div>
+                    
+            <div class="p-grid tasks" style="padding-top: 30px;">
+                <div class="p-col-6">
+                    <h3>Openstaande taken</h3>
+                     <div class="card">
+                         <p:graphicImage name="images/openmap.png" library="demo"/>
+                        <h5>Geen openstaande taken</h5>
+                        <p>Er zijn momenteel geen openstaande taken voor uw rekening,</p>
+                    </div>
+                </div>
+                <div class="p-col-6">
+                    <h3>Geplande betalingen taken</h3>
+                    <div class="card">
+                        <p:graphicImage name="images/openmap.png" library="demo"/>
+                        <h5>Geen geplande overboekingen</h5>
+                        <p>Voor de komende 14 dagen staan er geen overboekingen gepland voor deze rekening.</p>
+                    </div>
+                </div>
+                
+            </div>
+        
+            <p:dialog header="Transfer | Deposit Tokens" widgetVar="dlg2" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <div class="card ui-fluid">
+                            <p>Enter the amount to deposit or withdraw from your blockchain account</p>
+                            <!--<h5>Vertical</h5>-->
+                            <div class="p-field">
+                                <p:outputLabel for="name1">Rekening</p:outputLabel>
+                                <p:inputText id="name1" value="NL23 ABNA 9486 4576 89" disabled="true"/>
+                            </div>
+                            <div class="p-field">
+                                <p:outputLabel for="email1">Amount</p:outputLabel>
+                                <p:inputNumber id="email1" value="0" symbol=" EUR"
+                                symbolPosition="s" decimalSeparator="," thousandSeparator="." />
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between">
+                            <p:button value="Withdraw" icon="pi pi-upload"></p:button>
+                            <p:button value="Deposit" icon="pi pi-download" styleClass="ui-button-secondary"></p:button>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+        
+        
+        </h:form>
+    </ui:define>
+
+</ui:composition>

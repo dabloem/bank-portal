@@ -1,0 +1,38 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-3 ui-lg-3">
+            <p:button value="Create New Holder" styleClass="ui-button-flat"/>
+            <p:button value="Use Existing Holder" styleClass="ui-button-flat"/>
+            <p:menu rendered="false">
+                <p:submenu label="Options">
+                    <p:menuitem value="Save (Non-Ajax)"  update="messages" ajax="false"
+                                icon="pi pi-save"/>
+                    <p:menuitem value="Update" update="messages" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" update="messages" icon="pi pi-times"/>
+                </p:submenu>
+                <p:submenu label="Navigations">
+                    <p:menuitem value="Website" url="http://www.primefaces.org" icon="pi pi-external-link"/>
+                    <p:menuitem value="Internal" icon="pi pi-upload"/>
+                </p:submenu>
+            </p:menu>
+        </div>
+
+        <div class="ui-g-12 ui-md-1 ui-lg-1">
+            <p:divider layout="vertical"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-7 ui-lg-7">
+            <p:dataTable value="#{holderView.investors}" var="i">
+                <p:column>
+                    <h:outputText value="#{i.name}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </div>
+
+</ui:composition>

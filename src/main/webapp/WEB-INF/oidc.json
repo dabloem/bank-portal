@@ -1,0 +1,7 @@
+{
+  "provider-url": "http://100.74.70.5:8181/realms/noderunners",
+  "ssl-required": "external",
+  "client-id": "logbook",
+  "public-client": true,
+  "confidential-port": 0
+}
